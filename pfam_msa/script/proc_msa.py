@@ -41,11 +41,11 @@ with open("./output/seq_dict.pkl", 'wb') as file_handle:
     pickle.dump(seq_dict, file_handle)
         
 ## convert aa type into num 0-20
-aa = ['R', 'H', 'K',
-      'D', 'E',
-      'S', 'T', 'N', 'Q',
-      'C', 'G', 'P',
-      'A', 'V', 'I', 'L', 'M', 'F', 'Y', 'W']
+aa = ['R', 'H', 'K', 'D', 'E',
+      'B', 'S', 'T', 'N', 'Q', ### AMA - add 'B' residue
+      'C', 'G', 'P', 'A', 'V', 
+      'I', 'L', 'M', 'F', 'Y', 
+      'W']
 aa_index = {}
 aa_index['-'] = 0
 aa_index['.'] = 0
@@ -96,7 +96,7 @@ with open("./output/" + "/seq_weight.pkl", 'wb') as file_handle:
     pickle.dump(seq_weight, file_handle)
 
 ## change aa numbering into binary
-K = 21 ## num of classes of aa
+K = 22 ## num of classes of aa
 D = np.identity(K)
 num_seq = seq_msa.shape[0]
 len_seq_msa = seq_msa.shape[1]
