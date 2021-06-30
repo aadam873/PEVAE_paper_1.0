@@ -5,6 +5,7 @@ from torch.autograd import Variable
 import numpy as np
 import pickle
 import torch
+from torch.utils.data import Dataset, DataLoader
 import pandas
 from VAE_model import *
 from sklearn import linear_model
@@ -31,9 +32,9 @@ seq_weight = seq_weight.astype(np.float32)
 seq_keys = np.arange(seq_msa_binary.shape[0])
 
 batch_size = num_seq
-train_data = MSA_Dataset(seq_msa_binary, seq_weight)
+train_data = MSA_Dataset(seq_msa_binary, seq_weight, seq_keys)
 train_data_loader = DataLoader(train_data, batch_size = batch_size)
-vae = VAE(2, len_protein * num_res_type, 100)
+vae = VAE(21, 2, len_protein * num_res_type, [100])
 vae.cuda()
 vae.load_state_dict(torch.load("./output/model/vae_0.01.model"))
 
