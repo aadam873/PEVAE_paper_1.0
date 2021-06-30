@@ -34,9 +34,9 @@ seq_keys = np.arange(seq_msa_binary.shape[0])
 batch_size = num_seq
 train_data = MSA_Dataset(seq_msa_binary, seq_weight, seq_keys)
 train_data_loader = DataLoader(train_data, batch_size = batch_size)
-vae = VAE(21, 2, len_protein * num_res_type, [100])
+vae = VAE(22, 2, len_protein * num_res_type, [100])
 vae.cuda()
-vae.load_state_dict(torch.load("./output/model/vae_0.01.model"))
+vae.load_state_dict(torch.load("./output/model/vae_0.01_fold_1.model")) ## AMA - load one of the folds
 
 for idx, data in enumerate(train_data_loader):
     msa, weight, _ = data
