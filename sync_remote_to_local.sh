@@ -1,0 +1,1 @@
+rsync -avz amadams@eofe8.mit.edu:/home/amadams/abbya/PEVAE_Paper_new/pfam_msa ./
