@@ -1,16 +1,5 @@
-#!/home/xqding/apps/miniconda3/bin/python
-
 # Created by Xinqiang Ding (xqding@umich.edu)
 # at 2020/01/05 20:51:53
-
-#SBATCH --job-name=VAE
-#SBATCH --time=10:00:00
-#SBATCH --partition=gpu
-#SBATCH --exclude=gollum[003-045]
-#SBATCH --cpus-per-task=4
-#SBATCH --nodes=1
-#SBATCH --gres=gpu:1
-
 
 import numpy as np
 import matplotlib as mpl
@@ -24,7 +13,7 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 import torch.optim as optim
 import sys
-sys.path.append("/home/xqding/course/projectsOnGitHub/PEVAE_Paper/pfam_msa/script")
+sys.path.append("/home/amadams/abbya/PEVAE_Paper/pfam_msa")
 from VAE_model import *
 from sys import exit
 import argparse
